@@ -1,0 +1,89 @@
+C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity temp_reg
+-- Compiling architecture arch_temp_reg of temp_reg
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity sequencer
+-- Compiling architecture arch_sequencer of sequencer
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd(22): Cannot drive signal 'comptage' of mode IN.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd(23): near "else": (vcom-1576) expecting ';'.
+
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd(28): near ")": (vcom-1576) expecting STRING or IDENTIFIER or ALL or <<.
+
+
+} {8.0 10.0 11.0 12.0} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd {0 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity serial
+-- Compiling architecture arch_serial of serial
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(30): Unknown entity 'decodeur'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(38): Unknown entity 'registre_tampon'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(46): Unknown entity 'registre_ctl'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(54): Unknown entity 'registre_etat'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(69): Unknown entity 'sequenceur_serial'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(76): Unknown entity 'compteur'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(81): Unknown entity 'detecteur_parite'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(90): Unknown entity 'reg_serialisateur'. Use expanded name.
+** Error: C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd(97): VHDL Compiler exiting
+
+} {8.0 17.0} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity counter
+-- Compiling architecture arch_counter of counter
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/parity.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/parity.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity parity
+-- Compiling architecture arch_parity of parity
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity serializer
+-- Compiling architecture arch_serializer of serializer
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity state_reg
+-- Compiling architecture arch_state_reg of state_reg
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity decoder
+-- Compiling architecture arch_decoder of decoder
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity control_reg
+-- Compiling architecture arch_control_reg of control_reg
+
+} {} {}}

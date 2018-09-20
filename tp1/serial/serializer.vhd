@@ -22,7 +22,7 @@ begin
         elsif load='1' then
             reg <= d_in & "01";
         elsif rotate='1' then
-            reg <= d_in(0) & d_in(10 downto 1);
+            reg <= d_in(0) & reg(10 downto 1);
         end if ;
     end process ; -- identifier
 
