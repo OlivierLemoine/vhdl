@@ -1,5 +1,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 
 entity sequencer is
@@ -11,30 +12,49 @@ end sequencer;
 
 architecture arch_sequencer of sequencer is
 
-    type inner_state is (idle, triggered, waiting);
+    type inner_state is (idle, loading, counting);
     signal current_state, next_state : inner_state;
+    signal sync_start : std_logic;
 
 begin
 
     sync : process( clk, reset )
     begin
+        sync_start <= start;
+        raz_count <= '0';
         if reset='1' then
-            comptage <= "0000"
+            raz_count <= '1';
         else
             current_state <= next_state;
         end if ;
     end process ; -- sync
 
-    combination : process(  )
+    combination : process( current_state, sync_start, comptage )
     begin
-        case( comtage, current_sate ) is
-        
-            when IDLE =>
-                
-        
-            when others =>
-        
-        end case ;
+        ser <= '0';
+        ld_ser <= '0';
+        raz_ser <= '0';
+        raz_count <= '0';
+        next_state <= current_state;
+        case current_state is
+            when idle =>
+                if sync_start='1'
+                then
+                    next_state <= loading;
+                    ld_ser <= '1';
+                    raz_count <= '1';
+                end if;
+            when loading =>
+                next_state <= counting;
+                ser <= '1';
+                raz_count <= '0';
+            when counting =>
+                ser <= '1';
+                if comptage="1011" then
+                    next_state <= idle;
+                    ser <= '0';
+                end if ;
+        end case;
     end process ; -- combination
 
 end arch_sequencer;

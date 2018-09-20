@@ -3,10 +3,11 @@ use IEEE.std_logic_1164.all;
 use work.all;
 
 entity serial is
-port( clk, reset : in std_logic;
-	data : inout std_logic_vector(7 downto 0);
-	address : in std_logic_vector(1 downto 0);
-	tx : out std_logic);
+port(
+    clk, reset  : in std_logic;
+	data        : inout std_logic_vector(7 downto 0);
+	address     : in std_logic_vector(1 downto 0);
+	tx          : out std_logic);
 end serial;
 
 
@@ -22,39 +23,39 @@ begin
 data <= etat when oe_etat='1' else (others => 'Z');
 ser_in <= par & tamp_out;
 
-decod:		entity decodeur port map(
-			E 		=> address,
-			S0  		=> ld_ctl,
-			S1		=> oe_etat,
-			S2		=> ld_t
+decod:		entity decoder port map(
+			E   => address,
+			S0  => ld_ctl,
+			S1  => oe_etat,
+			S2  => ld_t
 			);
 
-tampon:		entity registre_tampon port map(
+tampon:		entity temp_reg port map(
 			clk		=> clk,
-			reset		=> reset,
-			load		=> ld_t,
-			d_in 		=> data,
-			d_out 		=> tamp_out
+			reset   => reset,
+			load    => ld_t,
+			d_in    => data,
+			d_out   => tamp_out
 			);
 
-ctl:		entity registre_ctl  port map(
-			clk		=> clk,
-			reset		=> reset,
-			load		=> ld_ctl,
-			d_in 		=> data,
-			d_out 		=> start
+ctl:		entity control_reg  port map(
+			clk	    => clk,
+			reset	=> reset,
+			load	=> ld_ctl,
+			d_in 	=> data,
+			d_out 	=> start
 			);
 
 
-reg_etat:		entity registre_etat  port map(
+reg_etat:	entity state_reg  port map(
 			clk		=> clk,
 			raz		=> raz_st,
 			set		=> set_st,
-			d_out 		=> etat
+			d_out 	=> etat
 			);
 
-seq:		entity sequenceur_serial port map(
-			clk		=> clk,
+seq:		entity sequencer port map(
+			clk		    => clk,
 			reset		=> reset,
 			start		=> start,
 			ld_t		=> ld_t,
@@ -63,29 +64,29 @@ seq:		entity sequenceur_serial port map(
 			raz_st		=> raz_st,
 			raz_ser		=> raz_ser,
 			ld_ser		=> ld_ser,
-			ser		=> ser,
+			ser		    => ser,
 			raz_count	=> raz_count,
-			ce 		=> ce
+			ce 		    => ce
 			);
 
-compt:		entity compteur port map(
+compt:		entity counter port map(
 			clk		=> clk,
 			raz		=> raz_count,
 			ce		=> ce,
-			count 		=> comptage
+			count   => comptage
 			);
 
-detec_par:	entity detecteur_parite port map(
+detec_par:	entity parity port map(
 			E 		=> tamp_out,
 			par		=> par
 			);
 
-reg_ser:	entity reg_serialisateur port map(
+reg_ser:	entity serializer port map(
 			raz		=> raz_ser,
 			clk		=> clk,
-			load		=> ld_ser,
-			rotate		=> ser,
-			d_in 		=> ser_in,
+			load	=> ld_ser,
+			rotate	=> ser,
+			d_in 	=> ser_in,
 			TX		=> tx
 			);
 
