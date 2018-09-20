@@ -12,7 +12,6 @@ architecture arch_state_reg of state_reg is
 begin
 	process(clk)
 		begin
-
 		if rising_edge(clk) then
 			if raz='1' then d_out <= (others => '0');
 			elsif set='1' then d_out(0) <= '1'; d_out(7 downto 1) <= (others => '0');

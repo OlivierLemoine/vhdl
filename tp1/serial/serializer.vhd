@@ -18,11 +18,13 @@ begin
     process(clk, raz)
     begin
         if raz='1' then
-            reg <= "00000000000";
-        elsif load='1' then
-            reg <= d_in & "01";
-        elsif rotate='1' then
-            reg <= d_in(0) & reg(10 downto 1);
+            reg <= "00000000001";
+        elsif rising_edge(clk) then 
+            if load='1' then
+                reg <= d_in & "01";
+            elsif rotate='1' then
+                reg <= reg(0) & reg(10 downto 1);
+            end if;
         end if ;
     end process ; -- identifier
 
