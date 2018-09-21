@@ -14,9 +14,9 @@ architecture arch_sequencer of sequencer is
 
     type inner_state is (idle, loading, counting);
     signal current_state, next_state : inner_state;
+    signal is_tmp_used : std_logic;
 
 begin
-
     sync : process( clk, reset )
     begin
         if reset='1' then
@@ -62,4 +62,7 @@ begin
         end case;
     end process ; -- combination
 
+    is_tmp_used <= ((ld_t or is_tmp_used) and not start) and not reset;
+    set_st <= is_tmp_used;
+    raz_st <= not is_tmp_used or reset;
 end arch_sequencer;

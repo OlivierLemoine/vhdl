@@ -22,9 +22,9 @@ VSV^g0__kWAlgIBe51NGJZ2
 !s100 RTLm_514?JFmXCPZ74P<83
 Z7 OP;C;10.4a;61
 32
-Z8 !s110 1537475059
+Z8 !s110 1537513430
 !i10b 1
-Z9 !s108 1537475059.000000
+Z9 !s108 1537513430.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd|
 Z11 !s107 C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd|
 !i113 1
@@ -63,9 +63,9 @@ VBIbFC8<3nQ_eAAlKg6OOV1
 !s100 l=;gz=WnzAGH9bYf>ToJ81
 R7
 32
-Z18 !s110 1537475060
+Z18 !s110 1537513431
 !i10b 1
-Z19 !s108 1537475060.000000
+Z19 !s108 1537513431.000000
 Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd|
 Z21 !s107 C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd|
 !i113 1
@@ -142,7 +142,7 @@ V0W:G0[K@J1CV1JGRAeTa>3
 !s100 XC:83m^@R5J7TUIf0g75X0
 R7
 32
-Z32 !s110 1537475061
+Z32 !s110 1537513432
 !i10b 1
 R19
 Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/parity.vhd|
@@ -169,7 +169,7 @@ R34
 R12
 R13
 Esequencer
-Z36 w1537473768
+Z36 w1537513427
 R2
 R3
 R4
@@ -184,7 +184,7 @@ R7
 32
 R32
 !i10b 1
-Z39 !s108 1537475061.000000
+Z39 !s108 1537513432.000000
 Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd|
 Z41 !s107 C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd|
 !i113 1
@@ -195,10 +195,10 @@ R2
 R3
 R4
 Z42 DEx4 work 9 sequencer 0 22 lVnegD:ZILZ`;<i]m6E;[1
-l18
+l19
 L13
-Vg9i=ER;gz;10V`9P6SS2[3
-!s100 3NXh0W?2HoeIeL5C8VBQn0
+VTJK5Of;Mz;P2M1DL7=Y[h1
+!s100 ]Rh1XGeZ94:Alzk1YjoDI2
 R7
 32
 R32
@@ -249,7 +249,7 @@ VXn;T:?jPPboAH?>I?>9:R2
 !s100 P5JSQT=W0DjWPUUObDokz2
 R7
 32
-R32
+Z51 !s110 1537513433
 !i10b 1
 R39
 R46
@@ -258,22 +258,22 @@ R47
 R12
 R13
 Eserializer
-Z51 w1537475052
+Z52 w1537475052
 R2
 R3
 R4
 R0
-Z52 8C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
-Z53 FC:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
+Z53 8C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
+Z54 FC:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
 l0
 L6
 V:;1X>DcBNXA^OaRbZld=S0
 !s100 ;DDoV=Gz:800UAScO6l1g0
 R7
 32
-Z54 !s110 1537475062
+R51
 !i10b 1
-Z55 !s108 1537475062.000000
+Z55 !s108 1537513433.000000
 Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd|
 Z57 !s107 C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd|
 !i113 1
@@ -290,7 +290,7 @@ VEH5]7QnC<D@Bf>HHn[>2V0
 !s100 3hOIXb7BQdS3HEjH@FP841
 R7
 32
-R54
+R51
 !i10b 1
 R55
 R56
@@ -311,7 +311,7 @@ VMf?V@8[IfNK`nfW94PP>I3
 !s100 WgamfEc?0^5540PB413<F2
 R7
 32
-R54
+R51
 !i10b 1
 R55
 Z61 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd|
@@ -329,7 +329,7 @@ VF6Pf96G>Bi@TV0^;AL<o13
 !s100 >h1@OmO1hW2b@@Ce2@39Z3
 R7
 32
-R54
+R51
 !i10b 1
 R55
 R61
@@ -350,7 +350,7 @@ V>D`hiY>0HfLEL6QZi>][O1
 !s100 C7YS6UDkT6bgLXbP7Ta0>2
 R7
 32
-Z66 !s110 1537475063
+Z66 !s110 1537513434
 !i10b 1
 R55
 Z67 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd|
@@ -391,7 +391,7 @@ R7
 32
 R66
 !i10b 1
-Z72 !s108 1537475063.000000
+Z72 !s108 1537513434.000000
 Z73 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd|
 Z74 !s107 C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd|
 !i113 1
