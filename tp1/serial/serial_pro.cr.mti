@@ -1,10 +1,36 @@
-C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd
+C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/sequencer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity sequencer
+-- Compiling architecture arch_sequencer of sequencer
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/temp_reg.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity temp_reg
 -- Compiling architecture arch_temp_reg of temp_reg
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity counter
+-- Compiling architecture arch_counter of counter
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tristate
+-- Compiling architecture arch_tristate of tristate
 
 } {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serial.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -23,23 +49,6 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Loading entity parity
 -- Loading entity serializer
 
-} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/tristate.vhd
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity tristate
--- Compiling architecture arch_tristate of tristate
-
-} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/counter.vhd
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity counter
--- Compiling architecture arch_counter of counter
-
 } {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/parity.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/parity.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
@@ -48,22 +57,13 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity parity
 -- Compiling architecture arch_parity of parity
 
-} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity serializer
--- Compiling architecture arch_serializer of serializer
-
-} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd
-Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity state_reg
--- Compiling architecture arch_state_reg of state_reg
+-- Compiling entity decoder
+-- Compiling architecture arch_decoder of decoder
 
 } {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/control_reg.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
@@ -74,12 +74,21 @@ Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 
 -- Compiling entity control_reg
 -- Compiling architecture arch_control_reg of control_reg
 
-} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/decoder.vhd
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/state_reg.vhd
 Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity decoder
--- Compiling architecture arch_decoder of decoder
+-- Compiling entity state_reg
+-- Compiling architecture arch_state_reg of state_reg
+
+} {} {}} C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/PC_/Documents/GitHub/vhdl/tp1/serial/serializer.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity serializer
+-- Compiling architecture arch_serializer of serializer
 
 } {} {}}

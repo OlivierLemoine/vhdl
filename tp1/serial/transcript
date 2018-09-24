@@ -1,0 +1,111 @@
+vsim -gui work.serial
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui 
+# Start time: 11:20:53 on Sep 24,2018
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.serial(arch_serial)
+# Loading work.decoder(arch_decoder)
+# Loading work.temp_reg(arch_temp_reg)
+# Loading work.control_reg(arch_control_reg)
+# Loading work.state_reg(arch_state_reg)
+# Loading work.sequencer(arch_sequencer)
+# Loading work.counter(arch_counter)
+# Loading work.parity(arch_parity)
+# Loading work.serializer(arch_serializer)
+restart -f
+force -freeze sim:/serial/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/serial/reset 1 0
+force -freeze sim:/serial/reset 0 200
+force -freeze sim:/serial/address 2'h1 200
+force -freeze sim:/serial/address 2'h2 400
+force -freeze sim:/serial/data 8'h55 400
+force -freeze sim:/serial/data 8'h01 590
+force -freeze sim:/serial/address 2'h0 590
+run 3000
+add wave -position end sim:/serial/*
+restart -f
+force -freeze sim:/serial/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/serial/reset 1 0
+force -freeze sim:/serial/reset 0 200
+force -freeze sim:/serial/address 2'h1 200
+force -freeze sim:/serial/address 2'h2 400
+force -freeze sim:/serial/data 8'h55 400
+force -freeze sim:/serial/data 8'h01 590
+force -freeze sim:/serial/address 2'h0 590
+run 3000
+
+restart -f
+force -freeze sim:/serial/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/serial/reset 1 0
+force -freeze sim:/serial/reset 0 200
+force -freeze sim:/serial/address 2'h1 200
+force -freeze sim:/serial/address 2'h2 400
+force -freeze sim:/serial/data 8'h00 400
+force -freeze sim:/serial/data 8'h01 590
+force -freeze sim:/serial/address 2'h0 590
+run 3000
+add wave -position end sim:/serial/seq/*
+add wave -position end sim:/serial/reg_ser/*
+restart -f
+force -freeze sim:/serial/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/serial/reset 1 0
+force -freeze sim:/serial/reset 0 200
+force -freeze sim:/serial/address 2'h1 200
+force -freeze sim:/serial/address 2'h2 400
+force -freeze sim:/serial/data 8'h00 400
+force -freeze sim:/serial/data 8'h01 590
+force -freeze sim:/serial/address 2'h0 590
+run 3000
+# Compile of control_reg.vhd was successful.
+# Compile of counter.vhd was successful.
+# Compile of decoder.vhd was successful.
+# Compile of parity.vhd was successful.
+# Compile of sequencer.vhd was successful.
+# Compile of serial.vhd was successful.
+# Compile of serializer.vhd was successful.
+# Compile of state_reg.vhd was successful.
+# Compile of temp_reg.vhd was successful.
+# Compile of tristate.vhd was successful.
+# 10 compiles, 0 failed with no errors.
+restart -f
+# Loading work.serial(arch_serial)
+# Loading work.decoder(arch_decoder)
+# Loading work.temp_reg(arch_temp_reg)
+# Loading work.control_reg(arch_control_reg)
+# Loading work.state_reg(arch_state_reg)
+# Loading work.sequencer(arch_sequencer)
+# Loading work.counter(arch_counter)
+# Loading work.parity(arch_parity)
+# Loading work.serializer(arch_serializer)
+force -freeze sim:/serial/clk 1 0, 0 {50 ns} -r 100
+force -freeze sim:/serial/reset 1 0
+force -freeze sim:/serial/reset 0 200
+force -freeze sim:/serial/address 2'h1 200
+force -freeze sim:/serial/address 2'h2 400
+force -freeze sim:/serial/data 8'h00 400
+force -freeze sim:/serial/data 8'h01 590
+force -freeze sim:/serial/address 2'h0 590
+run 3000
+add wave -position end sim:/serial/*
+# End time: 11:27:45 on Sep 24,2018, Elapsed time: 0:06:52
+# Errors: 0, Warnings: 0

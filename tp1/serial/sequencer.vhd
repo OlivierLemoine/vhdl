@@ -25,7 +25,7 @@ begin
             raz_st <= '1';
             current_state <= idle;
         elsif rising_edge(clk) then
-            if comptage="1011" then
+            if comptage="1010" then
                 raz_count <= '1';
             else
                 raz_count <= '0';
@@ -56,7 +56,7 @@ begin
                 when counting =>
                 ce <= '1';
                 ser <= '1';
-                if comptage="1011" then
+                if comptage="1010" then
                     next_state <= idle;
                 end if ;
         end case;

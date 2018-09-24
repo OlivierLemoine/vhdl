@@ -4,7 +4,7 @@ force -freeze sim:/serial/reset 1 0
 force -freeze sim:/serial/reset 0 200
 force -freeze sim:/serial/address 2'h1 200
 force -freeze sim:/serial/address 2'h2 400
-force -freeze sim:/serial/data 8'h55 400
+force -freeze sim:/serial/data 8'h00 400
 force -freeze sim:/serial/data 8'h01 590
 force -freeze sim:/serial/address 2'h0 590
 run 3000
