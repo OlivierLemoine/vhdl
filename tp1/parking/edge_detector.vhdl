@@ -23,7 +23,7 @@ begin
     end process;
 
     process(input_signal, current_state)
-    begins
+    begin
         output_signal <= '0';
         next_state <= current_state;
         case current_state is
