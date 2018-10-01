@@ -1,4 +1,4 @@
---TP1 mu0 - entité mémoire - a faire evoluer suivant les fonctionnalités du processeur à tester
+--TP1 mu0 - entitï¿½ mï¿½moire - a faire evoluer suivant les fonctionnalitï¿½s du processeur ï¿½ tester
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -13,7 +13,7 @@ entity ram0 is
 end ram0;
 
 -------------------------------------------------------------------------- 
--- Instruction  | Code Operation  | Action Realisée
+-- Instruction  | Code Operation  | Action Realisï¿½e
 -------------------------------------------------------------------------- 
 -- LDA addr     |   0000          | ACC <- mem[addr] 
 -- STO addr     |   0001          | mem[addr] <- ACC  
@@ -22,7 +22,7 @@ end ram0;
 -- JMP addr     |   0100          | PC  <- addr 
 -- JGE addr     |   0101          | si ACC >= 0 --> PC <- addr
 -- JNE addr     |   0110          | si ACC # 0  --> PC <- addr
--- STP          |   0111          | arrêter le processeur
+-- STP          |   0111          | arrï¿½ter le processeur
 -- AND addr     |   1000          | ACC <- ACC and mem[addr]
 -- OR  addr     |   1001          | ACC <- ACC or mem[addr]
 -- XOR addr     |   1010          | ACC <- ACC xor mem[addr]
@@ -39,22 +39,22 @@ architecture syn of ram0 is
 
 signal memory : memory_type := 
 (                     -- ADRESSE -- DONNEE
-  "0000000000000100", --    0    -- LDA 0x4
-  "0010000000000100", --    1    -- ADD 0x4
-  "0001000000000101", --    2    -- STO 0x5 
-  "0111000000000000", --    3    -- STP
-  "0000000000000111", --    4    -- donnée=7
-  "0000000000000000", --    5    -- 
+  "0000000000001111", --    0    -- LDA 0xF
+  "0010000000001111", --    1    -- ADD 0xF
+  "0001000000001110", --    2    -- STO 0xE 
+  "0011000000001101", --    3    -- SUB 0xD
+  "0101000000000011", --    4    -- JGE 0x3
+  "0100000000001000", --    5    -- JMP 0x8
   "0000000000000000", --    6    -- 
   "0000000000000000",  --   7    -- 
-  "0000000000000000",  --   8    -- 
+  "0111000000000000",  --   8    -- STP
   "0000000000000000",  --   9    -- 
   "0000000000000000",  --   10   -- 
   "0000000000000000",  --   11   -- 
   "0000000000000000",  --   12   -- 
-  "0000000000000000",  --   13   -- 
-  "0000000000000000",  --   14   -- 
-  "0000000000000000"   --   15   -- 
+  "0000000000000101",  --   13   -- data = 5
+  "0000000000000000",  --   14   -- res
+  "0000000000000111"   --   15   -- data = 7
 );
 
 
