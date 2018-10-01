@@ -19,8 +19,22 @@ signal MEMRQ	: std_logic;						-- memory request
 signal RNW		: std_logic;						 -- read/write op
 begin
 
---***************************************
---            A COMPLETER              --
---***************************************
+mu0_comp entity mu0 port map (
+	clk => clk,
+	reset => reset,
+	addr_bus => addr_bus,
+	data_bus => data_bus,
+	mem_rq => MEMRQ,
+	rnw => RNW
+);
+
+
+ram0_comp entity ram0 port map(
+	clk => clk,
+	addr_bus => addr_bus,
+	data_bus => data_bus,
+	MEMrq => MEMRQ,
+	RnW => RNW
+);
 
 end arch_mu0_mem;
