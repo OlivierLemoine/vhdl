@@ -191,9 +191,19 @@ architecture arch_ir_reg of ir_reg is
  signal interne :  std_logic_vector(3 downto 0);
 begin
 
---***************************************
---            A COMPLETER              --
---***************************************
+ -------------------------------
+ process(clk,raz)
+	begin
+	if raz = '1' then
+		data_out <= (others=>'0');
+	elsif rising_edge(clk) then
+		if load = '1' then 
+			interne <= data_in(15 downto 12);
+			data_out <= data_in(11 downto 0);
+		end if;
+	end if;
+end process;
+ -------------------------------
 
 opcode <= OP_LDA when interne="0000" else
           OP_STO when interne="0001" else
