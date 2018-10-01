@@ -394,7 +394,8 @@ architecture arch_mu0 of mu0 is
 	signal selA		: std_logic;	-- multiplexer A select
 	signal selB		: std_logic;	-- multiplexer B select
 	signal accZ		: std_logic;	-- accumulator all zero's
-	signal acc15	: std_logic;	-- accumualtor sign bit
+    signal acc15	: std_logic;	-- accumualtor sign bit
+    signal muxB_in  : std_logic_vector(15 downto 0);
 begin
 
     tristate_comp : entity tristate port map (
@@ -412,10 +413,12 @@ begin
 
     mux_B_comp : entity mux_B port map(
         sel => selB,
-        e_0 => "0000" & addr_bus,
+        e_0 => muxB_in,
         e_1 => data_bus,
         s => muxb_out
     );
+
+    muxB_in <= "0000" & addr_bus;
 
     alu_comp : entity alu port map(
         A => acc_out,
