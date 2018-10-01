@@ -70,6 +70,30 @@ else e_1;
 end arch_mux_B;
 
 ------------------------------------------------------
+--               MULTIPLEXEUR MUX C 2 VOIES
+------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity mux_C is
+  port( sel : in std_logic;
+        e_0, e_1 : in std_logic_vector(11 downto 0);
+        s : out std_logic_vector( 11 downto 0));
+end mux_C;
+
+architecture arch_mux_C of mux_C is
+  begin
+
+---------------------------
+s <= e_0 when sel = '0'
+else e_1;
+---------------------------
+
+end arch_mux_C;
+
+
+------------------------------------------------------
 --          UNITE ARITHMETIQUE ET LOGIQUE
 ------------------------------------------------------
 library IEEE;
@@ -214,6 +238,44 @@ data_out <= q_reg;
 ----------------------------
 
 end arch_pc_reg;
+
+
+------------------------------------------------------
+--               REGISTRE SPC
+------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity spc_reg is
+  port( clk, raz, load : in std_logic;
+        data_in : in std_logic_vector(11 downto 0);
+        data_out : out std_logic_vector(11 downto 0) );
+end spc_reg;
+
+architecture arch_spc_reg of spc_reg is
+  signal q_reg : std_logic_vector(11 downto 0);
+  begin
+
+----------------------------
+process(clk,raz)
+    begin
+        if raz = '1' then
+        q_reg <= (others=>'0');
+        elsif rising_edge(clk) then
+            if load ='1' then
+                q_reg <= data_in;
+            end if;
+        end if;
+end process;
+
+data_out <= q_reg;
+----------------------------
+
+end arch_spc_reg;
+
+
+
 ------------------------------------------------------
 --               REGISTRE IR (Instruction Register)
 ------------------------------------------------------
@@ -283,9 +345,11 @@ entity sequenceur is
             raz  : out std_logic;
             selA : out std_logic_vector(1 downto 0);
             selB : out std_logic;
+			selC : out std_logic;
             acc_ld, pc_ld, ir_ld, acc_oe, r_ld : out std_logic;
             alufs : out ALU_FCTS;
-            memrq, rnw : out std_logic
+            memrq, rnw : out std_logic;
+			spc_ld : out std_logic
         );
 end sequenceur;
 
@@ -309,6 +373,8 @@ process(etat_cr, opcode, accz, acc15)
         raz <= '0';
         selA <= "00";
         selB <= '0';
+		selC <= '1';
+		spc_ld <= '0';
         acc_ld <= '0';
         acc_oe <= '0';
         pc_ld <= '0';
@@ -319,6 +385,7 @@ process(etat_cr, opcode, accz, acc15)
         rnw <='1';
         r_inc <= '0';
         r_dec <= '0';
+		
 
 		case etat_cr is
 			when INIT =>
@@ -412,6 +479,20 @@ process(etat_cr, opcode, accz, acc15)
                         rnw <= '0';			-- select write to memory
                         r_inc <= '1';
 						etat_sv <= FETCH;
+					when OP_JSR =>
+						selA <= "11";		-- IR[mem] on addr bus
+						alufs <= ALU_B;  	-- op = B
+						pc_ld <= '1';
+						spc_ld <= '1';
+						etat_sv <= FETCH;
+					
+					when OP_RET =>
+						selC <= '0';		-- IR[mem] on addr bus
+						alufs <= ALU_B;  	-- op = B
+						pc_ld <= '1';
+						etat_sv <= FETCH;
+						
+						
 
 					when others =>
 						etat_sv <= STOP;
@@ -449,24 +530,30 @@ architecture arch_mu0 of mu0 is
 	signal ir_out	: std_logic_vector(11 downto 0);	 	    -- output of IR
 	signal r_out	: std_logic_vector(11 downto 0);	 	    -- output of IR
 	signal pc_out	: std_logic_vector(11 downto 0);		   	-- output of PC
+	signal spc_out	: std_logic_vector(11 downto 0);
 	signal alu_out	: std_logic_vector(15 downto 0);	 		-- output of ALU
 	signal acc_out	: std_logic_vector(15 downto 0);	 		-- output of ACC
-	signal muxb_out	: std_logic_vector(15 downto 0);	 		-- output of MUXb
+	signal muxb_out	: std_logic_vector(15 downto 0);	-- output of MUXb
+	signal muxc_out	: std_logic_vector(11 downto 0);
 	signal concat	: std_logic_vector(15 downto 0);
 	signal alufs	: ALU_FCTS;		-- function code for alu
 	signal ir_ld	: std_logic;	-- load IR
 	signal pc_ld	: std_logic;	-- load PC
-	signal r_ld	    : std_logic;	-- load PC
+	signal r_ld	    : std_logic;	-- load R
+	signal spc_ld	: std_logic;
 	signal acc_ld	: std_logic;	-- load ACC
 	signal acc_oe	: std_logic;	-- enable out buffer
 	signal selA		: std_logic_vector(1 downto 0);	-- multiplexer A select
 	signal selB		: std_logic;	-- multiplexer B select
+	signal selC		: std_logic;
 	signal accZ		: std_logic;	-- accumulator all zero's
     signal acc15	: std_logic;	-- accumualtor sign bit
     signal r_inc	: std_logic;
     signal r_dec	: std_logic;
     signal muxB_in  : std_logic_vector(15 downto 0);
     signal pc_in    : std_logic_vector(11 downto 0);
+	
+	
 begin
 
     tristate_comp : entity tristate port map (
@@ -490,8 +577,25 @@ begin
         s => muxb_out
     );
 
-    muxB_in <= "0000" & addr_bus;
+    muxB_in <= "0000" & muxc_out;
 
+	mux_C_comp : entity mux_C port map(
+		sel => selC,
+		e_0 => spc_out,
+		e_1 => addr_bus,
+		s => muxc_out
+	);
+	
+	
+	spc_comp : entity spc_reg port map (
+		clk => clk,
+        raz => raz,
+        load => spc_ld,
+        data_in => pc_out,
+        data_out => spc_out
+	
+	);
+	
     alu_comp : entity alu port map(
         A => acc_out,
         B => muxb_out,
@@ -549,6 +653,7 @@ begin
         raz => raz,
         selA => selA,
         selB => selB,
+		selC => selC,
         acc_ld => acc_ld,
         pc_ld => pc_ld,
         ir_ld => ir_ld,
@@ -556,7 +661,8 @@ begin
         acc_oe => acc_oe,
         alufs => alufs,
         memrq => mem_rq,
-        rnw => rnw
+        rnw => rnw,
+		spc_ld => spc_ld
     );
 
 end arch_mu0 ;
