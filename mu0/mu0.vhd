@@ -87,13 +87,13 @@ architecture arch_alu of alu is
 begin
 
 -----------------------------------
-S <= B when alufs = ALU_B;
-S <= std_logic_vector(unsigned(A)-unsigned(B)) when alufs = ALU_SUB;
-S <= std_logic_vector(unsigned(A)+unsigned(B)) when alufs = ALU_ADD;
-S <= std_logic_vector(unsigned(B)+1) when alufs = ALU_B_INC;
-S <= A and B when alufs = ALU_AND;
-S <= A or B when alufs = ALU_OR;
-S <= A xor B when alufs = ALU_XOR;
+S <= B when alufs = ALU_B else
+        std_logic_vector(unsigned(A)-unsigned(B)) when alufs = ALU_SUB else
+        std_logic_vector(unsigned(A)+unsigned(B)) when alufs = ALU_ADD else
+        std_logic_vector(unsigned(B)+1) when alufs = ALU_B_INC else
+        A and B when alufs = ALU_AND else
+        A or B when alufs = ALU_OR else
+        A xor B when alufs = ALU_XOR;
 -----------------------------------
 
 end arch_alu;
@@ -158,14 +158,14 @@ architecture arch_pc_reg of pc_reg is
 
 ----------------------------
 process(clk,raz)
-  begin
-    if raz = '1' then
-      q_reg <= (others=>'0');
-    elsif rising_edge(clk) then
-      if load ='1' then
-        q_reg <= data_in;
-      end if;
-  end if;
+    begin
+        if raz = '1' then
+        q_reg <= (others=>'0');
+        elsif rising_edge(clk) then
+            if load ='1' then
+                q_reg <= data_in;
+            end if;
+        end if;
 end process;
 
 data_out <= q_reg;
@@ -396,6 +396,7 @@ architecture arch_mu0 of mu0 is
 	signal accZ		: std_logic;	-- accumulator all zero's
     signal acc15	: std_logic;	-- accumualtor sign bit
     signal muxB_in  : std_logic_vector(15 downto 0);
+    signal pc_in    : std_logic_vector(11 downto 0);
 begin
 
     tristate_comp : entity tristate port map (
@@ -441,9 +442,11 @@ begin
         clk => clk,
         raz => raz,
         load => pc_ld,
-        data_in => alu_out(11 downto 0),
+        data_in => pc_in,
         data_out => pc_out
     );
+
+    pc_in <= alu_out(11 downto 0);
 
     ir_reg_comp : entity ir_reg port map(
         clk => clk,

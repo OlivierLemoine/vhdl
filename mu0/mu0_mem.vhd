@@ -1,4 +1,4 @@
--- TP1 mu0 - assemblage entités mu0 et mémoire - entité de plus haut rang à simuler pour faire fonctionner l'ensemble
+-- TP1 mu0 - assemblage entitï¿½s mu0 et mï¿½moire - entitï¿½ de plus haut rang ï¿½ simuler pour faire fonctionner l'ensemble
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -19,7 +19,7 @@ signal MEMRQ	: std_logic;						-- memory request
 signal RNW		: std_logic;						 -- read/write op
 begin
 
-mu0_comp entity mu0 port map (
+mu0_comp : entity mu0 port map (
 	clk => clk,
 	reset => reset,
 	addr_bus => addr_bus,
@@ -29,7 +29,7 @@ mu0_comp entity mu0 port map (
 );
 
 
-ram0_comp entity ram0 port map(
+ram0_comp : entity ram0 port map(
 	clk => clk,
 	addr_bus => addr_bus,
 	data_bus => data_bus,

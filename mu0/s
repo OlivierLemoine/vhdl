@@ -1,0 +1,5 @@
+restart -f
+force -freeze sim:/mu0_mem/clk 1 0, 0 {50} -r 100
+force -freeze sim:/mu0_mem/reset 1 0
+force -freeze sim:/mu0_mem/reset 0 200
+run 2000
