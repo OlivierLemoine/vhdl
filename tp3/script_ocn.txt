@@ -1,0 +1,6 @@
+restart -f
+force -freeze sim:/ocn/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/ocn/reset 1 0
+force -freeze sim:/ocn/reset 0 200
+force -freeze sim:/ocn/delta_phi 0001 0
+run 300
