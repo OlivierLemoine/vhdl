@@ -1,0 +1,29 @@
+restart -f
+force -freeze sim:/comp_phase/clock 1 0, 0 {50 ps} -r 100
+force -freeze sim:/comp_phase/reset 1 0
+force -freeze sim:/comp_phase/reset 0 100
+run 200
+
+force -freeze sim:/comp_phase/Top_0 1 0
+force -freeze sim:/comp_phase/Top_Synchro 1 0
+run 300
+
+force -freeze sim:/comp_phase/Top_Synchro 0 0
+force -freeze sim:/comp_phase/Top_0 0 100
+run 300
+
+force -freeze sim:/comp_phase/Top_Synchro 1 0
+force -freeze sim:/comp_phase/Top_0 1 200
+run 500
+
+force -freeze sim:/comp_phase/Top_Synchro 0 0
+force -freeze sim:/comp_phase/Top_0 0 50
+run 300
+
+force -freeze sim:/comp_phase/Top_0 1 0
+force -freeze sim:/comp_phase/Top_Synchro 1 200
+run 500
+
+force -freeze sim:/comp_phase/Top_Synchro 0 0
+force -freeze sim:/comp_phase/Top_0 0 50
+run 300
