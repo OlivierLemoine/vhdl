@@ -17,9 +17,9 @@ begin
 ----------------------------------------------------------------------------------
     process(clock,reset)
     begin
-            if reset='1' then current_state <= idle;
-            elsif rising_edge(clock) then current_state <= next_state;
-            end if;
+        if reset='1' then current_state <= idle;
+        elsif rising_edge(clock) then current_state <= next_state;
+        end if;
     end process;
 
     process(input_signal, current_state)
