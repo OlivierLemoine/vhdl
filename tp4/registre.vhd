@@ -4,8 +4,8 @@ library ieee ;
 
 entity registre is
     generic (
-        taille_in : integer :=4;
-        taille_out : integer :=4
+        taille_in : integer := 4;
+        taille_out : integer := 8
     );
     port (
         clock, reset : in std_logic;
@@ -16,17 +16,16 @@ entity registre is
 end registre ; 
 
 architecture arch_registre of registre is
-    signal reg : std_logic_vector(taille_out-1 downto 0);
 begin
     sync : process( clock )
     begin
         if rising_edge(clock) then
             if reset='1' then
-                reg <= (others => '0');
+                dout <= (others => '0');
             elsif load='1' then
-                reg <= std_logic_vector(resize(signed(din), taille_out));
+                dout(taille_out-1 downto taille_in) <= (others => din(taille_in-1));
+                dout(taille_in-1 downto 0) <= din;
             end if ;
         end if ;
     end process ; -- sync
-    dout <= reg;
 end architecture ;

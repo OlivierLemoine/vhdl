@@ -4,7 +4,7 @@ library ieee ;
 
 entity multiplieur is
     generic (
-        taille : integer :=4
+        taille : integer := 4
     );
     port (
         A, B    : in std_logic_vector(taille-1 downto 0);

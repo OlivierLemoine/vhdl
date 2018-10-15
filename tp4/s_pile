@@ -1,0 +1,26 @@
+restart -f
+force -freeze sim:/pile/clock 1 0, 0 {50 ps} -r 100
+force -freeze sim:/pile/raz 1 0
+force -freeze sim:/pile/raz 0 200
+force -freeze sim:/pile/rotate 0 0
+force -freeze sim:/pile/load 0 0
+force -freeze sim:/pile/din 0000 0
+run 300
+
+
+force -freeze sim:/pile/load 1 0
+force -freeze sim:/pile/din 0001 0
+run 100
+force -freeze sim:/pile/din 0010 0
+run 100
+force -freeze sim:/pile/din 0011 0
+run 100
+force -freeze sim:/pile/din 0100 0
+run 100
+force -freeze sim:/pile/din 0101 0
+run 100
+force -freeze sim:/pile/load 0 0
+run 200
+
+force -freeze sim:/pile/rotate 1 0
+run 1000
