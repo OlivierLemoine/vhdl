@@ -1,0 +1,116 @@
+﻿
+
+------------------------------------------------------------------
+---------------------- TRANSCRIPT --------------------------------
+------------------------------------------------------------------
+
+//OCN
+------
+
+force -freeze sim:/ocn/clk 1 0, 0 {83 ns} -r 166 ns
+force -freeze sim:/ocn/reset 1 0ns
+force -freeze sim:/ocn/reset 0 200ns
+force -freeze sim:/ocn/Delta_Phi 000000001 0ns
+run 200000ns
+
+
+// Comparateur
+--------------
+
+
+force -freeze sim:/comp_phase/clk 1 0, 0 {83 ns} -r 166 ns
+force -freeze sim:/comp_phase/reset 1 0ns
+force -freeze sim:/comp_phase/Top_synchro 0 0 ns
+force -freeze sim:/comp_phase/Top_0 0 0ns
+
+force -freeze sim:/comp_phase/reset 0 200ns
+force -freeze sim:/comp_phase/Top_0 1 350 ns
+force -freeze sim:/comp_phase/Top_0 0 360 ns
+force -freeze sim:/comp_phase/Top_synchro 1 1660 ns
+force -freeze sim:/comp_phase/Top_synchro 0 1826 ns
+
+force -freeze sim:/comp_phase/Top_synchro 1 1010 ns
+force -freeze sim:/comp_phase/Top_synchro 0 1328 ns
+force -freeze sim:/comp_phase/Top_0 1 1162 ns
+force -freeze sim:/comp_phase/Top_0 0 1328 ns
+
+force -freeze sim:/comp_phase/Top_synchro 1 1690 ns
+force -freeze sim:/comp_phase/Top_0 1 1690 ns
+force -freeze sim:/comp_phase/Top_synchro 0 1850 ns
+force -freeze sim:/comp_phase/Top_0 0 1850 ns
+
+run 2000 ns
+
+
+
+
+
+// compt/decomp
+--------------------
+
+
+force -freeze sim:/compteur/clk 1 0, 0 {83 ns} -r 166 ns
+force -freeze sim:/compteur/reset 1 0 ns
+force -freeze sim:/compteur/reset 0 200 ns
+
+force -freeze sim:/compteur/INC 0 0 ns
+force -freeze sim:/compteur/INC 1 520 ns
+force -freeze sim:/compteur/INC 0 1020 ns
+
+force -freeze sim:/compteur/DEC 0 0 ns
+force -freeze sim:/compteur/DEC 1 1190 ns
+force -freeze sim:/compteur/DEC 0 2100 ns
+
+run 3000 ns
+
+
+// filtre
+------------
+
+
+force -freeze sim:/filtre_de_boucle/clk 1 0, 0 {83 ns} -r 166 ns
+force -freeze sim:/filtre_de_boucle/reset 1 0 ns
+force -freeze sim:/filtre_de_boucle/reset 0 200 ns
+
+force -freeze sim:/filtre_de_boucle/INC 0 0 ns
+force -freeze sim:/filtre_de_boucle/INC 1 520 ns
+force -freeze sim:/filtre_de_boucle/INC 0 2100 ns
+
+force -freeze sim:/filtre_de_boucle/DEC 0 0 ns
+force -freeze sim:/filtre_de_boucle/DEC 1 2400 ns
+force -freeze sim:/filtre_de_boucle/DEC 0 3100 ns
+
+
+run 3200 ns
+
+
+// BVP Num
+-----------
+
+
+force -freeze sim:/bvp_numerique/clk 1 0, 0 {83 ns} -r 166 ns
+force -freeze sim:/bvp_numerique/Top_0 1 0, 0 {166000000} -r 333000000
+force -freeze sim:/bvp_numerique/reset 1 0 ns
+force -freeze sim:/bvp_numerique/reset 0 200 ns
+run 900000 ns
+
+// FPGA 300Hz avec clock fixé à 3KHz
+--------
+
+
+force -freeze sim:/fpga/clk 1 0, 0 {166 us} -r 333 us
+force -freeze sim:/fpga/Top_0 1 0, 0 {1616 us} -r 3330 us
+force -freeze sim:/fpga/reset 1 0 ns
+force -freeze sim:/fpga/reset 0 600 us
+run 600 ms
+
+
+// FPGA 60Hz avec clock fixé à 3KHz
+--------
+
+
+force -freeze sim:/fpga/clk 1 0, 0 {166 us} -r 333 us
+force -freeze sim:/fpga/Top_0 1 0, 0 {8333 us} -r 16666 us
+force -freeze sim:/fpga/reset 1 0 ns
+force -freeze sim:/fpga/reset 0 600 us
+run 600 ms
