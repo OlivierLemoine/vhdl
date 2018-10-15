@@ -30,11 +30,11 @@ begin
             when en_phase =>
                 if E='1' and S='0' then
                     next_state <= avance;
-                    Av <= '1'; 
+                    -- Av <= '1'; 
                 end if;
                 if E='0' and S='1' then
                     next_state <= retard;
-                    Ar <= '1';
+                    -- Ar <= '1';
                 end if ;
             when avance =>
                 Av <='1';

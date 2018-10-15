@@ -1,0 +1,6 @@
+restart -f
+force -freeze sim:/pll_tot/clock 1 0, 0 {166 us} -r 333 us
+force -freeze sim:/pll_tot/Top_0 1 0, 0 {333 us} -r 3330 us
+force -freeze sim:/pll_tot/reset 1 0 ns
+force -freeze sim:/pll_tot/reset 0 600 us
+run 1000 ms

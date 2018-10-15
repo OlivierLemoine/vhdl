@@ -23,7 +23,7 @@ begin
             out_reg <= (others=>'0');
             too_long_logic_vector <= (others=>'0');
         elsif rising_edge(clock) then
-            too_long_logic_vector <= std_logic_vector(signed(compt)*18 - (signed(prev_value)*17));
+            too_long_logic_vector <= std_logic_vector(unsigned(compt)*18 - (unsigned(prev_value)*17));
             -- out_reg <= too_long_logic_vector(size_reg*2-1 downto size_reg);
             out_reg <= too_long_logic_vector(size_reg+3 downto 4);
             prev_value <= compt;
